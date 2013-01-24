@@ -1,5 +1,8 @@
 <h1>Movies</h1>
 
+<%#= link_to "Add a New Movie", "/movies/new" %>
+<a href="http://localhost:3000/movies/new">Add a New Movie</a>
+
 <table>
   <thead>
     <tr>
@@ -12,7 +15,7 @@
     <% @movies.each_with_index do |movie, n| %>
       <tr>
         <td>
-          <%= link_to movie[:title], movie_url(n+1) %>
+          <%= link_to movie[:title], movie_url(n+1, ) %>
         </td>
         <!-- <td><a href="http://localhost:3000/movies/<%= n + 1 %>"><%= movie[:title] %></a></td> -->
         <td><%= movie[:director] %></td>
