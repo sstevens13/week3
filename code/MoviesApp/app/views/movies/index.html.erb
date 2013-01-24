@@ -9,9 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @movies.each do |movie| %>
+    <% @movies.each_with_index do |movie, n| %>
       <tr>
-        <td><%= movie[:title] %></td>
+        <td>
+          <%= link_to movie[:title], movie_url(n+1) %>
+        </td>
+        <!-- <td><a href="http://localhost:3000/movies/<%= n + 1 %>"><%= movie[:title] %></a></td> -->
         <td><%= movie[:director] %></td>
         <td><%= movie[:year] %></td>
       </tr>

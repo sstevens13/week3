@@ -4,6 +4,9 @@ class MoviesController < ApplicationController
     @movies = get_all_movies
   end
 
+  def show
+    @movie = get_all_movies[params[:id].to_i - 1]
+  end
 
   def get_all_movies
     [
