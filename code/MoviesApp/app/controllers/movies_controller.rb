@@ -1,7 +1,26 @@
 class MoviesController < ApplicationController
 
+  def new
+
+  end
+
+  def create
+    @movie = Movie.new
+    @movie.title = params[:title]
+    @movie.director = params[:director]
+    @movie.year = params[:year]
+    @movie.save
+    flash[:info] = "You've added a movie!"
+    redirect_to movies_url
+  end
+
+  def destroy
+    @movie = Movie.find_by_id(params[:id])
+    @movie.destroy
+    redirect_to movies_url
+  end
   def index
-    @movies = get_all_movies
+    @movies = Movie.all
   end
 
   def show

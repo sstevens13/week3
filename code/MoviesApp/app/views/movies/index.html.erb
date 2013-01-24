@@ -1,5 +1,7 @@
 <h1>Movies</h1>
 
+<%= flash[:info] %>
+
 <%#= link_to "Add a New Movie", "/movies/new" %>
 <a href="http://localhost:3000/movies/new">Add a New Movie</a>
 
@@ -9,17 +11,17 @@
       <th>Title</th>
       <th>Director</th>
       <th>Year</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
-    <% @movies.each_with_index do |movie, n| %>
+    <% @movies.each do |movie| %>
       <tr>
-        <td>
-          <%= link_to movie[:title], movie_url(n+1, ) %>
-        </td>
-        <!-- <td><a href="http://localhost:3000/movies/<%= n + 1 %>"><%= movie[:title] %></a></td> -->
-        <td><%= movie[:director] %></td>
-        <td><%= movie[:year] %></td>
+        <td><%= link_to movie.title, movie_url(movie.id) %></td>
+        <td><%= movie.director %></td>
+        <td><%= movie.year %></td>
+        <td><%= link_to "Delete", movie_url(movie.id), :method => "delete",
+                :confirm => "Whoa dude! Really?" %></td>
       </tr>
     <% end %>
   </tbody>

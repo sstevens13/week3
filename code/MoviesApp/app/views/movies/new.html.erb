@@ -1,0 +1,25 @@
+<h1>Add a New Movie</h1>
+
+<%= form_tag "/movies" do %>
+  <p>
+    <%= label_tag 'title' %>
+    <%= text_field_tag 'title' %>
+  </p>
+  <p>
+    <%= label_tag 'director' %>
+    <%= text_field_tag 'director' %>
+  </p>
+ <p>
+  <%= label_tag 'year' %>
+  <%= text_field_tag 'year' %>
+  </p>
+  <%= submit_tag %>
+<% end %>
+
+<!-- <form action="/movies" method="post">
+  <p>Title: <input type="text" name="title"></p>
+  <p>Director: <input type="text" name="director"></p>
+  <p>Year: <input type="text" name="year"></p>
+  <input type="submit" name="commit">
+</form>
+ -->

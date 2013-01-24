@@ -6,5 +6,7 @@ MoviesApp::Application.routes.draw do
 
   get '/movies/:id', :controller => 'movies', :action => 'show', :as => :movie
 
+  post '/movies', :controller => 'movies', :action => 'create'
 
+  delete "/movies/:id", :controller => 'movies', :action => 'destroy'
 end
