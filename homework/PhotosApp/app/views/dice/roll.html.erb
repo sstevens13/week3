@@ -1,0 +1,16 @@
+<h1>Dice Game</h1>
+
+<hr>
+
+<img alt=<%= @dice1 %> src=<%= @assets[@dice1] %>>
+<img alt=<%= @dice2 %> src=<%= @assets[@dice2] %>>
+
+<h1><%= @message %></h1>
+
+<!-- <h2><a href="/dice" class="btn btn-success btn-large">Play again.</a></h2> -->
+
+<% if @message.include? 'Your point' %>
+	<h1><%= button_to "Roll Again", roll_url(:point => @point) %></h1>
+<% else %>
+	<h1><%= button_to "Start Over", dice_url, :method => 'get' %></h1>
+<% end %>
